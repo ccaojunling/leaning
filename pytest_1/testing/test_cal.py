@@ -3,9 +3,10 @@ import yaml
 from decimal import *
 from pytest_1.pythoncode.calculate import Calculator
 
-#解析数据文件
+
+# 解析数据文件
 def get_data():
-    with open("./data/calc.yml",encoding='utf-8') as f:
+    with open("./data/calc.yml", encoding='utf-8') as f:
         datas_yml = yaml.safe_load(f)
     add_date = datas_yml['add']['datas']
     add_ids = datas_yml['add']['ids']
@@ -27,6 +28,14 @@ def get_step(filepath,a,b,expect):
 
 
 class TestCal:
+    # setup 和 teardown 合并成一个fixture
+    # @pytest.fixture
+    # def get_calc(self):
+    #     cal = Calculator()
+    #     print("计算开始")
+    #     yield cal
+    #     print("计算结束")
+
     def setup(self):
         print("单个计算开始")
         self.cal = Calculator()
@@ -35,8 +44,9 @@ class TestCal:
         print("------> 单个计算结束")
 
     @pytest.mark.parametrize("a,b,expect",get_data()[0],ids=get_data()[1])
-    def test_add(self,a,b,expect):
+    def test_add(self, a, b, expect, get_calc):
         result = self.cal.add(a,b)
+        # result = get_calc.add(a,b)
         assert result == expect
 
     @pytest.mark.parametrize("a,b,expect",[[0.1,0.2,0.3]],ids=["floatnum"])
