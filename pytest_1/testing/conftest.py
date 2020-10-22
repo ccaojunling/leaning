@@ -17,3 +17,10 @@ def login(request):
 def conn_db():
     print("连接数据库")
 
+
+# 设置编码，
+def pytest_collection_modifyitems(session,config,items):
+    for item in items:
+        item.name = item.name.encode("utf-8").decode('unicode-escape')
+        item._nodeid = item.nodeid.encode("utf-8").decode('unicode-escape')
+

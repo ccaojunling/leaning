@@ -5,6 +5,8 @@ import pytest
 # pytest **.py --reruns 5
 # pytest --reruns 5 --reruns-delay 1
 # pytest --reruns 5 --only-rerun AssertionError
+
+# 也可以用装饰器
 @pytest.mark.flaky(reruns=5)
 def test_example():
     import random
@@ -17,7 +19,9 @@ def test_simple_assume(x, y):
     pytest.assume(True)
     pytest.assume(False)
 
-# 电脑分布式并发执行，pytest-xdist
+# 电脑分布式并发执行，pytest-xdist，不要让测试用例有顺序或者有依赖，要不并发执行会出错
 # pytest **.py -n  3
 
+# 控制用例执行用例
+# @pytest.mark.run(order=1)
 

@@ -44,7 +44,7 @@ class TestCal:
         print("------> 单个计算结束")
 
     @pytest.mark.parametrize("a,b,expect",get_data()[0],ids=get_data()[1])
-    def test_add(self, a, b, expect, get_calc):
+    def test_add(self, a, b, expect):
         result = self.cal.add(a,b)
         # result = get_calc.add(a,b)
         assert result == expect
