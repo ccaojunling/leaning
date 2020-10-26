@@ -8,8 +8,6 @@ class TestTestdemo():
         options = Options()
         options.debugger_address = "127.0.0.1:9222"
         self.driver = webdriver.Chrome(options=options)
-    # def setup_method(self,method):
-    #     self.driver = webdriver.Chrome()Chrome
 
     def teardown_method(self, method):
         self.driver.quit()
