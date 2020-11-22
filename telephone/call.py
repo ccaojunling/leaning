@@ -10,8 +10,8 @@ class Testapp:
             # Android平台测试
             capabilities['platformName'] = 'Android'
             # 测试手机版本为5.0
-            capabilities['platformVersion'] = '8.0.0'
-            capabilities['deviceName'] = 'b3b3a439'
+            capabilities['platformVersion'] = '5.0'
+            capabilities['deviceName'] = '127.0.0.1:62001'
             # 系统手机中的联系人app的包名
             capabilities['appPackage'] = 'com.xueqiu.android'
             # 系统手机中的联系人app的主入口activity
