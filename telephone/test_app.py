@@ -3,7 +3,7 @@ import time
 import pytest
 from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
-from hamcrest import assert_that, close_to
+# from hamcrest import assert_that, close_to
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -23,8 +23,8 @@ class Testapp:
             capabilities['appPackage'] = 'com.xueqiu.android'
             # 系统手机中的联系人app的主入口activity
             capabilities['appActivity'] = '.view.WelcomeActivityAlias'
-            capabilities['noReset'] = 'True'
-            capabilities["dontStopAppOnReset"] = 'true'
+            capabilities['noReset'] = 'true'
+            # capabilities["dontStopAppOnReset"] = 'true'
             # 连接测试机所在服务器服务器
             self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', capabilities)
             self.driver.implicitly_wait(20)
@@ -32,9 +32,7 @@ class Testapp:
     def teardown(self):
         self.driver.find_element(MobileBy.ID, "com.xueqiu.android:id/action_close").click()
         # 断开连接
-
        # self.driver.quit()
-
 
     @pytest.mark.parametrize('search_key, name', [('alibaba', '阿里巴巴'), ('xiaomi', '小米集团-W')])
     def test_app(self, search_key, name):
