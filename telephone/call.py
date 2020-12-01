@@ -32,7 +32,7 @@ class Testapp:
         self.driver.set_network_connection(1)
         self.driver.start_recording_screen()
         time.sleep(3)
-        # self.driver.get_screenshot_as_file('./pthtos/img.png')
+        # self.driver.get_screenshot_as_file('./photos/img.png')
         # search_text = self.driver.find_element(MobileBy.ID, "com.xueqiu.android:id/home_search")
         # print(search_text.get_attribute("text"))
         # print(search_text.location)
