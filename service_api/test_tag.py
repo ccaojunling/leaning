@@ -1,44 +1,38 @@
 import json
+from datetime import datetime
 
+import pytest
 import requests
 
+from service_api.tag import Tag
 
-def get_token():
-    r = requests.get("https://qyapi.weixin.qq.com/cgi-bin/gettoken",
-                     params={
-                         "corpid": "ww913344e2a63b14ac",
-                         "corpsecret":"dTm8mcpCCbkRCVv8Cgz4-pFYwstWG_4JGEfderJ14sg"
+class  TestTag:
+    def setup_class(self):
+        self.tag = Tag()
 
-                     }
-    )
-    return r.json()["access_token"]
+    @pytest.mark.parametrize("group_name, tag_id, tag_name", [["测试1组", "etsL6FEAAAtXsOxhkA6yjwY2gjQmjDWg", "tag_11"],
+                                                             ["客户等级", "etsL6FEAAA99-sMj_IOTmkGCw7ehGOnQ", " 一般!@#"],
+                                                             ["客户等级", "etsL6FEAAAsghG9xnkU5V5OYCDhXJwlA", "重要  重要"]])
+    def test_tag_list(self, group_name, tag_id, tag_name):
+        # group_name = "测试1组"
+        # tag_id = "etsL6FEAAAtXsOxhkA6yjwY2gjQmjDWg"
+        # tag_name = "自动化名字_"+str(datetime.now().strftime("%Y%m%d%H%M%S"))
+        r = self.tag.getlist()
+        r = self.tag.update(tag_id,tag_name)
+        assert r.status_code == 200
+        assert r.json()["errcode"] == 0
+        r = self.tag.getlist()
+        tags = [tag for group in r.json()["tag_group"] if group["group_name"] == group_name for tag in group["tag"] if tag["name"] == tag_name]
+        assert tags !=[]
 
-
-def test_tag_list():
-    ACCESS_TOKEN = get_token()
-    r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/externalcontact/get_corp_tag_list",
-                      params={
-                          "access_token": ACCESS_TOKEN
-                      },
-                      json={
-
-                      }
-      )
-    print(json.dumps(r.json(), indent=2, ensure_ascii=False))
-    assert r.status_code == 200
-    assert r.json()["errcode"] == 0
-
-def test_edit_tag():
-    ACCESS_TOKEN = get_token()
-    r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/externalcontact/edit_corp_tag",
-                      params={
-                          "access_token": ACCESS_TOKEN
-                      },
-                      json={
-                          "id": "etsL6FEAAAtXsOxhkA6yjwY2gjQmjDWg",
-                          "name": "标签999",
-                      }
-                      )
-    print(json.dumps(r.json(), indent=2, ensure_ascii=False))
-    assert r.status_code == 200
-    assert r.json()["errcode"] == 0
+    def test_tag_add(self):
+        tag_name = [{"name":"tag_11"}, {"name":"tag_21"}]
+        group_name = "python151"
+        r = self.tag.add(tag_name,group_name=group_name)
+        assert r.status_code == 200
+        assert r.json()["errcode"] == 0
+        r = self.tag.getlist()
+        for i in tag_name:
+            tags = [tag for group in r.json()["tag_group"] if group["group_name"] == group_name for tag in group["tag"] if
+                    tag["name"] == i["name"]]
+            assert tags != []
