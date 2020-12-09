@@ -58,5 +58,14 @@ class Tag:
         print(json.dumps(r.json(), indent=2, ensure_ascii=False))
         return r
 
-    def delete(self):
-        pass
+    def delete(self,group_id,tag_id):
+        r = requests.post("https://qyapi.weixin.qq.com/cgi-bin/externalcontact/del_corp_tag",
+                          params={
+                              "access_token": self.token
+                          },
+                          json={
+                              "group_id": group_id,
+                              "tag_id": tag_id
+                          }
+                          )
+        return r
