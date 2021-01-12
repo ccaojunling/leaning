@@ -11,9 +11,9 @@ class Testtag:
     def setup_class(self):
         self.tag = Tag()
 
-    @pytest.mark.parametrize("group_name, tag_id, tag_name", [["测试1组", "etsL6FEAAAtXsOxhkA6yjwY2gjQmjDWg", "tag_11"],
-                                                             ["客户等级", "etsL6FEAAA99-sMj_IOTmkGCw7ehGOnQ", " 一般!@#"],
-                                                             ["客户等级", "etsL6FEAAAsghG9xnkU5V5OYCDhXJwlA", "重要  重要"]])
+    @pytest.mark.parametrize("group_name, tag_id, tag_name", [["测试1组", "etsL6FEAAAtXsOxhkA6yjwY2gjQmjDWg", "tag_1"],
+                                                             ["客户等级", "etsL6FEAAA99-sMj_IOTmkGCw7ehGOnQ", " 一般@#"],
+                                                             ["客户等级", "etsL6FEAAAsghG9xnkU5V5OYCDhXJwlA", "重要 重要"]])
     def test_tag_update(self, group_name, tag_id, tag_name):
         # group_name = "测试1组"
         # tag_id = "etsL6FEAAAtXsOxhkA6yjwY2gjQmjDWg"
