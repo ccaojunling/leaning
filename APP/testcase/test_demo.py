@@ -9,9 +9,9 @@ class TestDemo:
         self.app.StopApp()
 
     def test_demo(self):
-        name = "test1"
+        name = "test3"
         gender="女"
-        tele = "13300000001"
+        tele = "13333333333"
         self.addmember = self.app.StartApp().goto_MainPage().goto_contarct().goto_beforeaddmember().goto_addmember()
         text = self.addmember.add_member(name,gender,tele).get_toast()
         print(text)
