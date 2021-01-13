@@ -5,6 +5,8 @@ from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
 
+from APP.xueqiu.page import hand_black
+
 
 class BasePage:
     root_logger = logging.getLogger()
@@ -12,10 +14,10 @@ class BasePage:
     for h in root_logger.handlers[:]:
         root_logger.removeHandler(h)
     logging.basicConfig(level=logging.INFO)
-    _black_list = [(MobileBy.XPATH,'//*[@resource-id = "com.xueqiu.android:id/tv_agree" and @text ="同意"]'),
+    black_list = [(MobileBy.XPATH,'//*[@resource-id = "com.xueqiu.android:id/tv_agree" and @text ="同意"]'),
                    (MobileBy.XPATH,'//*[@resource-id = "com.xueqiu.android:id/ib_close"]')]
-    _max_no = 3
-    _error_no = 0
+    max_no = 3
+    error_no = 0
 
 
     def __init__(self, driver:WebDriver = None):
@@ -40,29 +42,19 @@ class BasePage:
         else:
             self.driver = driver
 
+    @hand_black
     def find(self,by,locator = None):
         logging.info(by)
         logging.info(locator)
-        try:
-            if locator is None:
-                from selenium.webdriver.support.wait import WebDriverWait
-                WebDriverWait(self.driver, 10).until(lambda x: x.find_element(*by))
-                element = self.driver.find_element(*by)
-                self._error_no = 0
-            else:
-                from selenium.webdriver.support.wait import WebDriverWait
-                WebDriverWait(self.driver,10).until(lambda x: x.find_element(by,locator))
-                element = self.driver.find_element(by,locator)
-            return element
-        except Exception as e:
-            if self._error_no > self._max_no:
-                raise e
-            for black_ele in self._black_list:
-                ele = self.driver.find_elements(*black_ele)
-                if len(ele) >0:
-                    ele[0].click()
-                    return self.find(by,locator)
-            raise e
+        if locator is None:
+            from selenium.webdriver.support.wait import WebDriverWait
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element(*by))
+            element = self.driver.find_element(*by)
+        else:
+            from selenium.webdriver.support.wait import WebDriverWait
+            WebDriverWait(self.driver,5).until(lambda x: x.find_element(by,locator))
+            element = self.driver.find_element(by,locator)
+        return element
 
     def find_by_scroll(self,text):
         logging.info("scroll")
