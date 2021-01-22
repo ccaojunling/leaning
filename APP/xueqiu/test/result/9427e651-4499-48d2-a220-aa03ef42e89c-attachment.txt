@@ -1,0 +1,6 @@
+INFO:root:xpath
+INFO:root://*[@class = "android.widget.TabWidget"]//*[@text ="行情"]
+INFO:root:xpath
+INFO:root://*[@class = "android.widget.TabWidget"]//*[@text ="行情"]
+INFO:root:xpath
+INFO:root://*[@class = "android.widget.ImageButton" and @resource-id ="com.xueqiu.android:id/action_search"]

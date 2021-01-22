@@ -1,0 +1,108 @@
+{
+  "uid" : "fb15dc637f37182f",
+  "name" : "test_search",
+  "fullName" : "test.Testdemo#test_search",
+  "historyId" : "fce9344a7adc507ce2d1ac06724610d1",
+  "time" : {
+    "start" : 1610971965116,
+    "stop" : 1610972010334,
+    "duration" : 45218
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "e135f0a8401dc08b",
+      "name" : "ba51ddf1-e783-466f-b118-484a8d31205e-attachment.png",
+      "source" : "e135f0a8401dc08b.png",
+      "type" : "image/png",
+      "size" : 287952
+    }, {
+      "uid" : "4b7bec5a25034551",
+      "name" : "log",
+      "source" : "4b7bec5a25034551.txt",
+      "type" : "text/plain",
+      "size" : 472
+    }, {
+      "uid" : "bf7f13c8d69585a5",
+      "name" : "stderr",
+      "source" : "bf7f13c8d69585a5.txt",
+      "type" : "text/plain",
+      "size" : 299
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test"
+  }, {
+    "name" : "subSuite",
+    "value" : "Testdemo"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-0V6MFIJ"
+  }, {
+    "name" : "thread",
+    "value" : "7912-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "e5390a20cbb3f259",
+      "status" : "broken",
+      "statusDetails" : "UnicodeDecodeError: 'gbk' codec can't decode byte 0x88 in position 48: illegal multibyte sequence",
+      "time" : {
+        "start" : 1610971601913,
+        "stop" : 1610971662483,
+        "duration" : 60570
+      }
+    }, {
+      "uid" : "5771a6e9576c2a0e",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device.",
+      "time" : {
+        "start" : 1610971418011,
+        "stop" : 1610971461386,
+        "duration" : 43375
+      }
+    }, {
+      "uid" : "d729a0a15dcdd753",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device.",
+      "time" : {
+        "start" : 1610971364682,
+        "stop" : 1610971410670,
+        "duration" : 45988
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fb15dc637f37182f.json",
+  "parameterValues" : [ ]
+}

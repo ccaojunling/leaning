@@ -5,7 +5,7 @@ from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
 
-from APP.xueqiu.page import hand_black
+from APP.xueqiu.page.hand_black import handle_balck
 
 
 class BasePage:
@@ -42,7 +42,8 @@ class BasePage:
         else:
             self.driver = driver
 
-    @hand_black
+    @handle_balck
+    # 封装查找元素
     def find(self,by,locator = None):
         logging.info(by)
         logging.info(locator)
@@ -57,6 +58,7 @@ class BasePage:
         return element
 
     def find_by_scroll(self,text):
+        # 封装滚动查找
         logging.info("scroll")
         logging.info(text)
         element = self.find(MobileBy.ANDROID_UIAUTOMATOR,
@@ -67,6 +69,7 @@ class BasePage:
         return element
 
     def find_and_click(self,by,locator):
+        # 封装查找并点击
         logging.info("click")
         logging.info(by)
         logging.info(locator)
@@ -76,6 +79,7 @@ class BasePage:
         self.find(by,locator).click()
 
     def get_toast_text(self):
+        # 封装获取toast文本
         logging.info("get_toast_text")
         toast_text = self.find(MobileBy.XPATH, "//*[@class='android.widget.Toast']").text
         return toast_text

@@ -1,0 +1,2 @@
+[32mINFO    [0m root:base_page.py:48 xpath
+[32mINFO    [0m root:base_page.py:49 //*[@class = "android.widget.TabWidget"]//*[@text ="行情"]

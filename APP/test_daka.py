@@ -15,7 +15,7 @@ class Testcase:
             "appActivity": ".launch.LaunchSplashActivity",
             "noReset": True
         }
-        self.driver = webdriver.Remote("httP://127.0.0.1:4723/wd/hub",desire_caps)
+        self.driver = webdriver.Remote("httP://127.0.0.1:4444/wd/hub",desire_caps)
         self.driver.implicitly_wait(5)
 
     def teardown(self):

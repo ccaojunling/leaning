@@ -1,0 +1,2 @@
+INFO:root:xpath
+INFO:root://*[@class = "android.widget.TabWidget"]//*[@text ="行情"]
