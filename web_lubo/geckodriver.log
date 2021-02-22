@@ -1,0 +1,26 @@
+1613810097177	geckodriver	INFO	Listening on 127.0.0.1:55607
+1613810097182	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileNk63Ru"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613810100037	Marionette	INFO	Listening on port 36507
+1613810100206	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613810100231	Marionette	ERROR	[15] No reply from Marionette:Register
+1613810104616	Marionette	INFO	Stopped listening on port 36507
+JavaScript error: resource://activity-stream/lib/ASRouter.jsm, line 987: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIObserverService.removeObserver]
+1613826495812	geckodriver	INFO	Listening on 127.0.0.1:41929
+1613826495821	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilemQLDfx"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613826498747	Marionette	INFO	Listening on port 36945
+1613826498882	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613826498900	Marionette	ERROR	[15] No reply from Marionette:Register
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 775))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 422))
+1613826512213	Marionette	INFO	Stopped listening on port 36945
+1613828205689	geckodriver	INFO	Listening on 127.0.0.1:47529
+1613828205698	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileG5G9i3"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613828207975	Marionette	INFO	Listening on port 35891
+1613828208031	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613828208042	Marionette	ERROR	[15] No reply from Marionette:Register
+1613828221267	Marionette	INFO	Stopped listening on port 35891

@@ -10,9 +10,9 @@ class BaseMethod():
     def __init__(self, driver:WebDriver = None):
         if driver == None:
             # 复用浏览器
-            options = Options()
-            options.debugger_address="localhost:9222"
-            self.driver= webdriver.Chrome(options=options)
+            # options = Options()
+            # options.debugger_address="localhost:9222"
+            self.driver= webdriver.Firefox()
             self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
             self.driver.implicitly_wait(5)
         else:
