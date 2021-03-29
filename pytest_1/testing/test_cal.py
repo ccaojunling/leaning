@@ -49,7 +49,7 @@ class TestCal:
         # result = get_calc.add(a,b)
         assert result == expect
 
-    @pytest.mark.parametrize("a,b,expect",[[0.1,0.2,0.3]],ids=["floatnum"])
+    @pytest.mark.parametrize("a,b,expect",[[0.1,0.2,0.3]],ids=['floatnum'])
     def test_float_add(self,a,b,expect):
         result = self.cal.add(a,b)
         assert round(result,2) == expect

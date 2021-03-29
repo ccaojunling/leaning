@@ -29,3 +29,4 @@ class BaseMethod():
     def wait_for_click(self,locator,timeout=10):
         element:WebElement = WebDriverWait(self.driver,timeout).until(expected_conditions.element_to_be_clickable(locator))
         return element
+
